@@ -14,7 +14,7 @@ import time
             ------- d ------    5 
 """
 
-#           a, b, c, d,  e,  f,  g
+#      a, b, c, d,  e,  f,  g
 seg = [0, 2, 4, 5, 12, 13, 14]
 segment = []
 
@@ -156,5 +156,5 @@ if reset:
     while (not(count_up) and not(count_down)):
         for i in range(len(segment)):
             segment[i].value(zero[i])
-            
+
     
