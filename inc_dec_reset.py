@@ -34,22 +34,29 @@ reset = False
 counter = 0
 
 # segment values 
-values = { 0: [1, 1, 1, 1, 1, 1, 0],
-           1: [0, 1, 1, 0, 0, 0, 0],
-           2: [1, 1, 0, 1, 1, 0, 1],
-           3: [1, 1, 1, 1, 0, 0, 1],
-           4: [0, 1, 1, 0, 0, 1, 1], 
-           5: [1, 0, 1, 1, 0, 1, 1],
-           6: [1, 0, 1, 1, 1, 1, 1], 
-           7: [1, 1, 1, 0, 0, 0, 0],
-           8: [1, 1, 1, 1, 1, 1, 1],
-           9: [1, 1, 1, 1, 0, 1, 1]}
+seg_values = {  0: [1, 1, 1, 1, 1, 1, 0],
+                1: [0, 1, 1, 0, 0, 0, 0],
+                2: [1, 1, 0, 1, 1, 0, 1],
+                3: [1, 1, 1, 1, 0, 0, 1],
+                4: [0, 1, 1, 0, 0, 1, 1], 
+                5: [1, 0, 1, 1, 0, 1, 1],
+                6: [1, 0, 1, 1, 1, 1, 1], 
+                7: [1, 1, 1, 0, 0, 0, 0],
+                8: [1, 1, 1, 1, 1, 1, 1],
+                9: [1, 1, 1, 1, 0, 1, 1]
+            }
 
 initialize()
 
 # default (display 0) 
 for i in range(len(segment)):
-    segment[i].value(values[0])
+
+    values = seg_values[0]
+    
+    for val in values:
+        segment[i].value(val)
+
+
 
 while True:
 
@@ -63,7 +70,9 @@ while True:
 
                 # display zero 
                 for i in range(len(segment)):
-                    segment[i].value(values[counter])
+                    values = seg_values[counter]
+                    for val in values:
+                        segment[i].value(val)
             
             elif 0 <= counter < 9:
                 # increment counter
@@ -71,7 +80,9 @@ while True:
 
                 # display counter 
                 for i in range(len(segment)):
-                    segment[i].value(values[counter])
+                    values = seg_values[counter]
+                    for val in values:
+                        segment[i].value(val)
 
     if decrement:
 
@@ -83,7 +94,9 @@ while True:
 
                 # display zero 
                 for i in range(len(segment)):
-                    segment[i].value(values[counter])
+                    values = seg_values[counter]
+                    for val in values:
+                        segment[i].value(val)
             
             elif 0 <= counter < 9:
                 # deecrement counter
@@ -91,7 +104,9 @@ while True:
 
                 # display counter 
                 for i in range(len(segment)):
-                    segment[i].value(values[counter])
+                    values = seg_values[counter]
+                    for val in values:
+                        segment[i].value(val)
 
     if reset:
 
@@ -99,4 +114,6 @@ while True:
                 counter = 0
                 # display zero 
                 for i in range(len(segment)):
-                    segment[i].value(values[counter])
+                    values = seg_values[counter]
+                    for val in values:
+                        segment[i].value(val)
