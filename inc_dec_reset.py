@@ -46,18 +46,57 @@ values = { 0: [1, 1, 1, 1, 1, 1, 0],
            9: [1, 1, 1, 1, 0, 1, 1]}
 
 initialize()
+
+# default (display 0) 
+for i in range(len(segment)):
+    segment[i].value(values[0])
+
 while True:
 
-    # default (display 0) 
-    for i in range(len(segment)):
-        segment[i].value(values[0])
-    
     if increment:
-        counter += 1
 
-        # display counter 
+        if ((not(decrement)) and (not(reset))): 
 
+            if counter == 9:
+                # reset counter 
+                counter = 0
 
+                # display zero 
+                for i in range(len(segment)):
+                    segment[i].value(values[counter])
+            
+            elif 0 <= counter < 9:
+                # increment counter
+                counter += 1
 
+                # display counter 
+                for i in range(len(segment)):
+                    segment[i].value(values[counter])
 
+    if decrement:
 
+        if ((not(increment)) and (not(reset))): 
+
+            if counter == 0:
+                # reset counter 
+                counter = 9
+
+                # display zero 
+                for i in range(len(segment)):
+                    segment[i].value(values[counter])
+            
+            elif 0 <= counter < 9:
+                # deecrement counter
+                counter -= 1
+
+                # display counter 
+                for i in range(len(segment)):
+                    segment[i].value(values[counter])
+
+    if reset:
+
+        if ((not(decrement)) and (not(increment))): 
+                counter = 0
+                # display zero 
+                for i in range(len(segment)):
+                    segment[i].value(values[counter])
